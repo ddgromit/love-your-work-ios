@@ -24,15 +24,17 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    NSLog(@"didFinishPickingMediaWithInfo: %@",info);
+    // Get the image from the camera
     UIImage* pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     [self.previewImageView setImage:pickedImage];
-    [self dismissModalViewControllerAnimated:NO];
     
-    // Show the storyboard
+    // Create the venues list controller
     UIStoryboard* venues = [UIStoryboard storyboardWithName:@"VenuePicker" bundle:nil];
-    UIViewController* venuesController = [venues instantiateInitialViewController];
-    [self presentModalViewController:venuesController animated:NO];
+    VenuePicker* venuesController = [venues instantiateInitialViewController];
+    venuesController.delegate = self;
+    
+    // Put the venues storyboard on the camera's nav
+    [picker pushViewController:venuesController animated:NO];
     
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -65,6 +67,12 @@
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperation:operation];   
 }
+
+- (void)pickedVenue:(NSDictionary *)venue
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -87,7 +95,7 @@
     
 	// What is the device capable of
     UIImagePickerControllerSourceType type =
-    UIImagePickerControllerSourceTypePhotoLibrary;
+        UIImagePickerControllerSourceTypePhotoLibrary;
     BOOL canTakePicture = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
     BOOL canPickPicture = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary];
     

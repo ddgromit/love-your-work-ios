@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "VenuePicker.h"
 
-@interface ShareViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate> {
+@interface ShareViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate, VenuePickerDelegate> {
     UIImageView* previewImageView;
     UILabel* pecentage;
     UIViewController* venuePickerController;
