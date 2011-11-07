@@ -14,6 +14,7 @@
 
 @synthesize previewImageView;
 @synthesize pecentage;
+@synthesize venuePickerController;
 
 - (void)didReceiveMemoryWarning
 {
@@ -26,7 +27,12 @@
     NSLog(@"didFinishPickingMediaWithInfo: %@",info);
     UIImage* pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     [self.previewImageView setImage:pickedImage];
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissModalViewControllerAnimated:NO];
+    
+    // Show the storyboard
+    UIStoryboard* venues = [UIStoryboard storyboardWithName:@"VenuePicker" bundle:nil];
+    UIViewController* venuesController = [venues instantiateInitialViewController];
+    [self presentModalViewController:venuesController animated:NO];
     
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -97,7 +103,6 @@
     // Show the controller
     UIImagePickerController* picker = [[UIImagePickerController alloc] init];
     picker.sourceType = type;
-    picker.mediaTypes =
     [UIImagePickerController availableMediaTypesForSourceType:type];
     picker.delegate = self;
     [self presentModalViewController:picker animated:NO];

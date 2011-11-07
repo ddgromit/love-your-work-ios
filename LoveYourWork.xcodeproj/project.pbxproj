@@ -34,6 +34,7 @@
 		65B9F4641464886000AC907F /* VenuePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9F4631464886000AC907F /* VenuePicker.m */; };
 		65B9F46714649A9C00AC907F /* HyperpublicAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9F46614649A9C00AC907F /* HyperpublicAPI.m */; };
 		65B9F46A14649AAE00AC907F /* HPVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9F46914649AAE00AC907F /* HPVenue.m */; };
+		65F1EAC5146852E50070A030 /* VenuePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65F1EAC4146852E50070A030 /* VenuePicker.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		65B9F46614649A9C00AC907F /* HyperpublicAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyperpublicAPI.m; sourceTree = "<group>"; };
 		65B9F46814649AAE00AC907F /* HPVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPVenue.h; sourceTree = "<group>"; };
 		65B9F46914649AAE00AC907F /* HPVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPVenue.m; sourceTree = "<group>"; };
+		65F1EAC4146852E50070A030 /* VenuePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = VenuePicker.storyboard; path = LoveYourWork/VenuePicker.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		65B9F3EC1462F87800AC907F = {
 			isa = PBXGroup;
 			children = (
+				65F1EAC4146852E50070A030 /* VenuePicker.storyboard */,
 				65B9F4231462F88500AC907F /* Vendor */,
 				65B9F4011462F87900AC907F /* LoveYourWork */,
 				65B9F3FA1462F87900AC907F /* Frameworks */,
@@ -267,6 +270,7 @@
 				65B9F4161462F87900AC907F /* first@2x.png in Resources */,
 				65B9F41B1462F87900AC907F /* second.png in Resources */,
 				65B9F41D1462F87900AC907F /* second@2x.png in Resources */,
+				65F1EAC5146852E50070A030 /* VenuePicker.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +410,7 @@
 				65B9F4221462F87900AC907F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -14,4 +14,5 @@
 - (void)placesReturned:(NSArray*)placesJSON;
 
 @property (retain, nonatomic) NSArray* places;
+
 @end
