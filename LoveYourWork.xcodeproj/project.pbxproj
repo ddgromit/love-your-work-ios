@@ -14,7 +14,6 @@
 		65B9F4081462F87900AC907F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9F4071462F87900AC907F /* main.m */; };
 		65B9F40C1462F87900AC907F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9F40B1462F87900AC907F /* AppDelegate.m */; };
 		65B9F40F1462F87900AC907F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B9F40D1462F87900AC907F /* MainStoryboard.storyboard */; };
-		65B9F4121462F87900AC907F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9F4111462F87900AC907F /* FirstViewController.m */; };
 		65B9F4141462F87900AC907F /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B9F4131462F87900AC907F /* first.png */; };
 		65B9F4161462F87900AC907F /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65B9F4151462F87900AC907F /* first@2x.png */; };
 		65B9F4191462F87900AC907F /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B9F4181462F87900AC907F /* ShareViewController.m */; };
@@ -49,14 +48,12 @@
 		65B9F40A1462F87900AC907F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		65B9F40B1462F87900AC907F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		65B9F40E1462F87900AC907F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		65B9F4101462F87900AC907F /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		65B9F4111462F87900AC907F /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		65B9F4131462F87900AC907F /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		65B9F4151462F87900AC907F /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		65B9F4131462F87900AC907F /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = first.png; path = LoveYourWork/first.png; sourceTree = "<group>"; };
+		65B9F4151462F87900AC907F /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "first@2x.png"; path = "LoveYourWork/first@2x.png"; sourceTree = "<group>"; };
 		65B9F4171462F87900AC907F /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		65B9F4181462F87900AC907F /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
-		65B9F41A1462F87900AC907F /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		65B9F41C1462F87900AC907F /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		65B9F41A1462F87900AC907F /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = LoveYourWork/second.png; sourceTree = "<group>"; };
+		65B9F41C1462F87900AC907F /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "second@2x.png"; path = "LoveYourWork/second@2x.png"; sourceTree = "<group>"; };
 		65B9F4251462F8BE00AC907F /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		65B9F4261462F8BE00AC907F /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		65B9F4291462F8E900AC907F /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -103,12 +100,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6568C099146DCED9002CD1CD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				65B9F40D1462F87900AC907F /* MainStoryboard.storyboard */,
+				65F1EAC4146852E50070A030 /* VenuePicker.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		6568C09A146DCEFA002CD1CD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				65B9F4131462F87900AC907F /* first.png */,
+				65B9F4151462F87900AC907F /* first@2x.png */,
+				65B9F41A1462F87900AC907F /* second.png */,
+				65B9F41C1462F87900AC907F /* second@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		6568C09B146DCF2F002CD1CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				65B9F40A1462F87900AC907F /* AppDelegate.h */,
+				65B9F40B1462F87900AC907F /* AppDelegate.m */,
+				65B9F4621464886000AC907F /* VenuePicker.h */,
+				65B9F4631464886000AC907F /* VenuePicker.m */,
+				65B9F4171462F87900AC907F /* ShareViewController.h */,
+				65B9F4181462F87900AC907F /* ShareViewController.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6568C09C146DCF52002CD1CD /* API */ = {
+			isa = PBXGroup;
+			children = (
+				65B9F46514649A9C00AC907F /* HyperpublicAPI.h */,
+				65B9F46614649A9C00AC907F /* HyperpublicAPI.m */,
+				65B9F46814649AAE00AC907F /* HPVenue.h */,
+				65B9F46914649AAE00AC907F /* HPVenue.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		65B9F3EC1462F87800AC907F = {
 			isa = PBXGroup;
 			children = (
-				65F1EAC4146852E50070A030 /* VenuePicker.storyboard */,
-				65B9F4231462F88500AC907F /* Vendor */,
+				6568C099146DCED9002CD1CD /* UI */,
 				65B9F4011462F87900AC907F /* LoveYourWork */,
+				6568C09A146DCEFA002CD1CD /* Images */,
+				65B9F4231462F88500AC907F /* Vendor */,
 				65B9F3FA1462F87900AC907F /* Frameworks */,
 				65B9F3F81462F87900AC907F /* Products */,
 			);
@@ -135,23 +177,8 @@
 		65B9F4011462F87900AC907F /* LoveYourWork */ = {
 			isa = PBXGroup;
 			children = (
-				65B9F40A1462F87900AC907F /* AppDelegate.h */,
-				65B9F40B1462F87900AC907F /* AppDelegate.m */,
-				65B9F40D1462F87900AC907F /* MainStoryboard.storyboard */,
-				65B9F4621464886000AC907F /* VenuePicker.h */,
-				65B9F4631464886000AC907F /* VenuePicker.m */,
-				65B9F46514649A9C00AC907F /* HyperpublicAPI.h */,
-				65B9F46814649AAE00AC907F /* HPVenue.h */,
-				65B9F46914649AAE00AC907F /* HPVenue.m */,
-				65B9F46614649A9C00AC907F /* HyperpublicAPI.m */,
-				65B9F4101462F87900AC907F /* FirstViewController.h */,
-				65B9F4111462F87900AC907F /* FirstViewController.m */,
-				65B9F4131462F87900AC907F /* first.png */,
-				65B9F4151462F87900AC907F /* first@2x.png */,
-				65B9F4171462F87900AC907F /* ShareViewController.h */,
-				65B9F4181462F87900AC907F /* ShareViewController.m */,
-				65B9F41A1462F87900AC907F /* second.png */,
-				65B9F41C1462F87900AC907F /* second@2x.png */,
+				6568C09C146DCF52002CD1CD /* API */,
+				6568C09B146DCF2F002CD1CD /* Views */,
 				65B9F4021462F87900AC907F /* Supporting Files */,
 			);
 			path = LoveYourWork;
@@ -283,7 +310,6 @@
 			files = (
 				65B9F4081462F87900AC907F /* main.m in Sources */,
 				65B9F40C1462F87900AC907F /* AppDelegate.m in Sources */,
-				65B9F4121462F87900AC907F /* FirstViewController.m in Sources */,
 				65B9F4191462F87900AC907F /* ShareViewController.m in Sources */,
 				65B9F4271462F8BE00AC907F /* JSONKit.m in Sources */,
 				65B9F43E1462F8E900AC907F /* AFHTTPClient.m in Sources */,
@@ -319,6 +345,7 @@
 				65B9F40E1462F87900AC907F /* en */,
 			);
 			name = MainStoryboard.storyboard;
+			path = LoveYourWork;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
