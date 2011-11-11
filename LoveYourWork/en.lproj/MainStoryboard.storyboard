@@ -65,7 +65,10 @@
                                 <rect key="frame" x="7" y="150" width="306" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="textFieldReturn:" destination="3" eventType="editingDidEndOnExit" id="hSi-lV-7Gm"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -164,6 +167,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
             <relationships>
                 <relationship kind="action" name="sendPressed:"/>
+                <relationship kind="action" name="textFieldReturn:"/>
                 <relationship kind="outlet" name="pecentage" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="previewImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="venuePickerController" candidateClass="UIViewController"/>

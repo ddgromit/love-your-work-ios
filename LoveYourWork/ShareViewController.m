@@ -21,7 +21,11 @@
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
-
+-(IBAction)textFieldReturn:(id)sender
+{
+    NSLog(@"text field return");
+    [sender resignFirstResponder];
+}
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     // Get the image from the camera
