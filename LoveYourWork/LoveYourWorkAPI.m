@@ -20,7 +20,14 @@
     return self;
 }
 
-- (void)sendImage:(UIImage*)image withHyperpublicId:(NSString*)hpId withUserId:(NSString*)userId caption:(NSString*)caption {
+- (void)sendImage:(UIImage*)image withHyperpublicId:(NSString*)hpId 
+       withUserId:(NSString*)userId 
+          caption:(NSString*)caption
+          success:(void (^)())success 
+          failure:(void (^)())failure
+uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite))uploadProgressBlock
+{
+    
     // Convert the UIImage to JPEG data
     NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
     
@@ -47,11 +54,15 @@
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
     // Allow delegate to watch for transfer progress
+    if (uploadProgressBlock != nil) {
+        [operation setUploadProgressBlock:uploadProgressBlock];
+    }
+    /*
     [operation setUploadProgressBlock:^(NSInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite) {
         
         NSLog(@"Sent %d of %d bytes", totalBytesWritten, totalBytesExpectedToWrite);
         [self.delegate uploadProgress:bytesWritten totalByesWritten:totalBytesWritten totalBytesExpectedToWrite:totalBytesExpectedToWrite];
-    }];
+    }];*/
     
     // Kick off the transfer
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];

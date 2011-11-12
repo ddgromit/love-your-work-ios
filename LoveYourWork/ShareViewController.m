@@ -56,34 +56,20 @@
     
     LoveYourWorkAPI *api = [[LoveYourWorkAPI alloc] init];
     api.delegate = self;
-    [api sendImage:self.previewImageView.image 
- withHyperpublicId:@"afdasfda" 
-        withUserId:@"1" 
-           caption:@"from iphone api"];
-    
-    /*
-     NSData *imageData = UIImageJPEGRepresentation(self.previewImageView.image, 0.5);
-    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:@"3",@"pic[venue_id]",@"1",@"pic[user_id]",@"from iphone", @"pic[caption]",nil];
-    // Instantiate the client
-    NSURL* baseURL = [[NSURL alloc] initWithString:@"http://127.0.0.1:3000/"];
-    AFHTTPClient *client= [[AFHTTPClient alloc] initWithBaseURL:baseURL];
-    [client setDefaultHeader:@"Content-disposition" value:@"form-data"];
-    NSMutableURLRequest *request = 
-        [client multipartFormRequestWithMethod:@"POST" 
-                                          path:@"pics" 
-                                    parameters:params 
-                     constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
-        [formData appendPartWithFileData:imageData mimeType:@"image/jpeg" name:@"pic[image]"];
-    }];
-    
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setUploadProgressBlock:^(NSInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite) {
-        NSLog(@"Sent %d of %d bytes", totalBytesWritten, totalBytesExpectedToWrite);
-    }];
-        
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [queue addOperation:operation];   
-     */
+    [api    sendImage:self.previewImageView.image 
+    withHyperpublicId:@"afdasfda" 
+           withUserId:@"1" 
+              caption:@"from iphone api"
+              success:^() {
+                  NSLog(@"Called success");
+              }
+              failure:nil
+  uploadProgressBlock:^(NSInteger bytesWritten, 
+                        NSInteger totalBytesWritten, 
+                        NSInteger totalBytesExpectedToWrite) {
+                  NSLog(@"Sent %d of %d bytes", totalBytesWritten, totalBytesExpectedToWrite);
+              }];
+
     
 }
 

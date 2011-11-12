@@ -18,7 +18,12 @@
     
 }
 - (id)init;
-- (void)sendImage:(UIImage*)image withHyperpublicId:(NSString*)hpId withUserId:(NSString*)userId caption:(NSString*)caption;
+- (void)sendImage:(UIImage*)image withHyperpublicId:(NSString*)hpId 
+       withUserId:(NSString*)userId 
+          caption:(NSString*)caption
+          success:(void (^)())success
+          failure:(void (^)())failure
+uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite))uploadProgressBlock;
 
 @property (assign, nonatomic) id<LoveYourWorkAPIDelegate>delegate;
 @end
