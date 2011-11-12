@@ -75,6 +75,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LQy-1J-S7q"/>
                     <connections>
+                        <outlet property="captionTextField" destination="Be6-CY-zP8" id="B6D-RV-nTc"/>
                         <outlet property="pecentage" destination="qib-k3-ab0" id="c2b-jA-43f"/>
                         <outlet property="previewImageView" destination="9qs-Uc-UEZ" id="lqc-DJ-Tdh"/>
                     </connections>
@@ -168,6 +169,7 @@
             <relationships>
                 <relationship kind="action" name="sendPressed:"/>
                 <relationship kind="action" name="textFieldReturn:"/>
+                <relationship kind="outlet" name="captionTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="pecentage" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="previewImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="venuePickerController" candidateClass="UIViewController"/>

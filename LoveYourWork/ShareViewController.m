@@ -15,6 +15,7 @@
 @synthesize previewImageView;
 @synthesize pecentage;
 @synthesize venuePickerController;
+@synthesize captionTextField;
 
 - (void)didReceiveMemoryWarning
 {
@@ -47,9 +48,21 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (void)uploadProgress:(NSInteger)bytesWritten totalByesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
+{
+    NSLog(@"uploadprogress called");
+}
 - (IBAction) sendPressed: (id) sender {
-    NSData *imageData = UIImageJPEGRepresentation(self.previewImageView.image, 0.5);
     
+    LoveYourWorkAPI *api = [[LoveYourWorkAPI alloc] init];
+    api.delegate = self;
+    [api sendImage:self.previewImageView.image 
+ withHyperpublicId:@"afdasfda" 
+        withUserId:@"1" 
+           caption:@"from iphone api"];
+    
+    /*
+     NSData *imageData = UIImageJPEGRepresentation(self.previewImageView.image, 0.5);
     NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:@"3",@"pic[venue_id]",@"1",@"pic[user_id]",@"from iphone", @"pic[caption]",nil];
     // Instantiate the client
     NSURL* baseURL = [[NSURL alloc] initWithString:@"http://127.0.0.1:3000/"];
@@ -70,6 +83,8 @@
         
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperation:operation];   
+     */
+    
 }
 
 - (void)pickedVenue:(NSDictionary *)venue
@@ -87,6 +102,8 @@
 
 - (void)viewDidUnload
 {
+    captionTextField = nil;
+    [self setCaptionTextField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

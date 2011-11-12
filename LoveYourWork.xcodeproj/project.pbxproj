@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6568C09F146DDFA4002CD1CD /* LoveYourWorkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568C09E146DDFA4002CD1CD /* LoveYourWorkAPI.m */; };
 		65B9F3FC1462F87900AC907F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9F3FB1462F87900AC907F /* UIKit.framework */; };
 		65B9F3FE1462F87900AC907F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9F3FD1462F87900AC907F /* Foundation.framework */; };
 		65B9F4001462F87900AC907F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9F3FF1462F87900AC907F /* CoreGraphics.framework */; };
@@ -37,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6568C09D146DDFA4002CD1CD /* LoveYourWorkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveYourWorkAPI.h; sourceTree = "<group>"; };
+		6568C09E146DDFA4002CD1CD /* LoveYourWorkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveYourWorkAPI.m; sourceTree = "<group>"; };
 		65B9F3F71462F87900AC907F /* LoveYourWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveYourWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B9F3FB1462F87900AC907F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		65B9F3FD1462F87900AC907F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -140,6 +143,8 @@
 				65B9F46614649A9C00AC907F /* HyperpublicAPI.m */,
 				65B9F46814649AAE00AC907F /* HPVenue.h */,
 				65B9F46914649AAE00AC907F /* HPVenue.m */,
+				6568C09D146DDFA4002CD1CD /* LoveYourWorkAPI.h */,
+				6568C09E146DDFA4002CD1CD /* LoveYourWorkAPI.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				65B9F4641464886000AC907F /* VenuePicker.m in Sources */,
 				65B9F46714649A9C00AC907F /* HyperpublicAPI.m in Sources */,
 				65B9F46A14649AAE00AC907F /* HPVenue.m in Sources */,
+				6568C09F146DDFA4002CD1CD /* LoveYourWorkAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
