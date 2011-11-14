@@ -23,8 +23,8 @@
 - (void)sendImage:(UIImage*)image withHyperpublicId:(NSString*)hpId 
        withUserId:(NSString*)userId 
           caption:(NSString*)caption
-          success:(void (^)())success 
-          failure:(void (^)())failure
+          success:(void (^)(NSString*))success 
+          failure:(void (^)(NSError*))failure
 uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite))uploadProgressBlock
 {
     
@@ -52,6 +52,19 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
                      }];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    void (^complete)() = ^() {
+        if (operation.error) {
+            if (failure != nil) {
+                failure(operation.error);
+            }
+        } else {
+            if (success != nil) {
+                success(operation.responseString);
+            }
+        }
+    };
+    [operation setCompletionBlock:complete];
     
     // Allow delegate to watch for transfer progress
     if (uploadProgressBlock != nil) {

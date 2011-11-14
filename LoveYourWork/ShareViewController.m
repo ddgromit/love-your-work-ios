@@ -60,10 +60,12 @@
     withHyperpublicId:@"afdasfda" 
            withUserId:@"1" 
               caption:@"from iphone api"
-              success:^() {
-                  NSLog(@"Called success");
+              success:^(NSString* response) {
+                  NSLog(@"Called success: %@",response);
               }
-              failure:nil
+              failure:^(NSError* error) {
+                  NSLog(@"Called failure: %@",error);
+              }
   uploadProgressBlock:^(NSInteger bytesWritten, 
                         NSInteger totalBytesWritten, 
                         NSInteger totalBytesExpectedToWrite) {
