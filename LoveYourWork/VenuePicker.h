@@ -17,18 +17,26 @@
 
 
 
-@interface VenuePicker : UITableViewController <HyperpublicAPIDelegate, CLLocationManagerDelegate> 
+@interface VenuePicker : UITableViewController <HyperpublicAPIDelegate, CLLocationManagerDelegate, UISearchBarDelegate> 
 {
     CLLocationManager *locationManager;
-    bool loaded;
+    bool initialLoadStarted;
 }
 
 
+- (void)reloadPlaces;
 - (void)placesReturned:(NSArray*)placesJSON;
 
 @property (retain, nonatomic) NSArray* places;
 @property (retain, nonatomic) id <VenuePickerDelegate> delegate;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) HyperpublicAPI* api;
+
+# pragma mark - HP API query state
+@property (nonatomic, retain) CLLocation* currentLocation;
+@property (nonatomic, retain) NSString* currentQuery;
+
+# pragma mark - controls
+@property (retain, nonatomic) IBOutlet UISearchBar* searchBar;
 
 @end
