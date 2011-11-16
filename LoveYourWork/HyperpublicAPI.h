@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#include <CoreLocation/CoreLocation.h>
 
 @protocol HyperpublicAPIDelegate <NSObject>
 
@@ -18,7 +19,7 @@
 @interface HyperpublicAPI : NSObject
 
 - (id)initWithClientId:(NSString *)clientId clientSecret:(NSString *)clientSecret; 
-- (void)apiCall;
+- (void)apiCallWithLocation:(CLLocation*)location;
 
 @property (strong, nonatomic) NSString* clientId;
 @property (strong, nonatomic) NSString* clientSecret;

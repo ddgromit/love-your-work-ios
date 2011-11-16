@@ -12,12 +12,46 @@
 
 @synthesize places;
 @synthesize delegate;
+@synthesize locationManager;
+@synthesize api;
+
+- (CLLocationManager *)locationManager {
+    
+    if (locationManager != nil) {
+        return locationManager;
+    }
+    
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    locationManager.delegate = self;
+    
+    return locationManager;
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation 
+{
+    NSLog(@"Location manager update: %@", newLocation);
+    if (!loaded) {
+        NSLog(@"Making API call");
+        [self.api apiCallWithLocation:newLocation];
+        loaded = true;
+    }
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error 
+{
+    NSLog(@"Location manager failed: %@", error);
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        loaded = false;
     }
     return self;
 }
@@ -44,12 +78,15 @@
 {
     [super viewDidLoad];
     
-    // Load data from hyperpublic
-    HyperpublicAPI* api = [[HyperpublicAPI alloc] initWithClientId:@"7G2jA481ETolJl2bmAySJ12dZjB2Lc3FeEaeOzWv" 
-                                                      clientSecret:@"jJ32HUlFnEMGXJWvQ246WLyaNKyk94YPwYearXq6"];
+    [[self locationManager] startUpdatingLocation];
+    
+    
+    // Set up the API client
+    self.api = [[HyperpublicAPI alloc] 
+                initWithClientId:@"7G2jA481ETolJl2bmAySJ12dZjB2Lc3FeEaeOzWv" 
+                    clientSecret:@"jJ32HUlFnEMGXJWvQ246WLyaNKyk94YPwYearXq6"];
     
     api.delegate = self;
-    [api apiCall];
 }
 
 - (void)viewDidUnload

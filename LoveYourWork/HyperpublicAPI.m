@@ -23,10 +23,16 @@
     
     return self;
 }
-- (void)apiCall
+- (void)apiCallWithLocation:(CLLocation*)location
 {
+    CLLocationCoordinate2D coords = location.coordinate;
+    CLLocationDegrees lat = coords.latitude;
+    CLLocationDegrees lon = coords.longitude;
+    
+    
     NSString *endpoint = @"https://api.hyperpublic.com/api/v1/places";
-    NSString *url = [NSString stringWithFormat:@"%@?client_id=%@&client_secret=%@",endpoint,self.clientId,self.clientSecret];
+    NSString *url = [NSString 
+                     stringWithFormat:@"%@?client_id=%@&client_secret=%@&lat=%f&lon=%f&limit=50",endpoint,self.clientId,self.clientSecret,lat,lon];
     NSLog(@"Making api call to %@",url);
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
