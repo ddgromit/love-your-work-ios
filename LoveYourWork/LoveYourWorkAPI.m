@@ -12,6 +12,8 @@
 
 @implementation LoveYourWorkAPI
 
+static bool const USING_PROD = true;
+
 @synthesize delegate;
 
 - (id)init {
@@ -20,7 +22,8 @@
     return self;
 }
 
-- (void)sendImage:(UIImage*)image withHyperpublicId:(NSString*)hpId 
+- (void)sendImage:(UIImage*)image 
+withHyperpublicId:(NSString*)hpId 
        withUserId:(NSString*)userId 
           caption:(NSString*)caption
           success:(void (^)(NSString*))success 
@@ -38,18 +41,27 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
                             caption, @"caption",
                             nil];
     
+    // Determine what endpoint to use
+    NSURL* baseURL;
+    if (USING_PROD) {
+        baseURL = [[NSURL alloc] initWithString:@"http://loveyourwork.heroku.com/"];
+    } else {
+        baseURL = [[NSURL alloc] initWithString:@"http://127.0.0.1:3000/"];
+    }
+    
     // Create a POST file transfer
-    NSURL* baseURL = [[NSURL alloc] initWithString:@"http://127.0.0.1:3000/"];
     AFHTTPClient *client= [[AFHTTPClient alloc] initWithBaseURL:baseURL];
     [client setDefaultHeader:@"Content-disposition" value:@"form-data"];
     NSMutableURLRequest *request = 
         [client multipartFormRequestWithMethod:@"POST" 
-                                          path:@"api/mobile_pic" 
+                                          path:@"mobile_api/post_pic" 
                                     parameters:params 
                      constructingBodyWithBlock: ^(id <AFMultipartFormData>formData) {
                          // Add the image data to the POST body
                          [formData appendPartWithFileData:imageData mimeType:@"image/jpeg" name:@"image"];
                      }];
+    NSLog(@"Making LoveYourWork request to %@ with params %@",[request URL],params);
+    
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     

@@ -21,5 +21,6 @@
 @property (nonatomic, retain) IBOutlet UILabel* pecentage;
 @property (nonatomic, retain) IBOutlet UIViewController* venuePickerController;
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
+@property (strong, nonatomic) NSDictionary* selectedVenue;
 
 @end

@@ -16,6 +16,7 @@
 @synthesize pecentage;
 @synthesize venuePickerController;
 @synthesize captionTextField;
+@synthesize selectedVenue;
 
 - (void)didReceiveMemoryWarning
 {
@@ -53,11 +54,12 @@
     NSLog(@"uploadprogress called");
 }
 - (IBAction) sendPressed: (id) sender {
+    NSString* hpId = [self.selectedVenue valueForKey:@"id"];
     
     LoveYourWorkAPI *api = [[LoveYourWorkAPI alloc] init];
     api.delegate = self;
     [api    sendImage:self.previewImageView.image 
-    withHyperpublicId:@"afdasfda" 
+    withHyperpublicId:hpId
            withUserId:@"1" 
               caption:@"from iphone api"
               success:^(NSString* response) {
@@ -77,6 +79,8 @@
 
 - (void)pickedVenue:(NSDictionary *)venue
 {
+    NSDictionary* newVenue = [[NSDictionary alloc] initWithDictionary:venue copyItems:true];
+    self.selectedVenue = newVenue;
     [self dismissModalViewControllerAnimated:YES];
 }
 
