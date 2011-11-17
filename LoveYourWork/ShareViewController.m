@@ -93,7 +93,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 }
 
 - (void)viewDidUnload
@@ -105,14 +104,11 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)presentImagePicker
 {
-    [super viewWillAppear:animated];
-    
-    
 	// What is the device capable of
     UIImagePickerControllerSourceType type =
-        UIImagePickerControllerSourceTypePhotoLibrary;
+    UIImagePickerControllerSourceTypePhotoLibrary;
     BOOL canTakePicture = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
     BOOL canPickPicture = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary];
     
@@ -131,11 +127,17 @@
     [UIImagePickerController availableMediaTypesForSourceType:type];
     picker.delegate = self;
     [self presentModalViewController:picker animated:NO];
+    
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self presentImagePicker];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
