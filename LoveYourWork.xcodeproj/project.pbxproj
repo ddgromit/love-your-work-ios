@@ -26,6 +26,7 @@
 		654980E414758FFB008369C3 /* white_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 654980E314758FFB008369C3 /* white_texture.png */; };
 		654980FB1475AD15008369C3 /* postpicbuttonbg_button_highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 654980F91475AD15008369C3 /* postpicbuttonbg_button_highlight.png */; };
 		654980FC1475AD15008369C3 /* postpicbuttonbg_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 654980FA1475AD15008369C3 /* postpicbuttonbg_button.png */; };
+		654980FF1475B312008369C3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 654980FE1475B312008369C3 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6568C09F146DDFA4002CD1CD /* LoveYourWorkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568C09E146DDFA4002CD1CD /* LoveYourWorkAPI.m */; };
 		656A23F0147427F4000E1419 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656A23EF147427F4000E1419 /* CoreLocation.framework */; };
 		65B9F3FC1462F87900AC907F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9F3FB1462F87900AC907F /* UIKit.framework */; };
@@ -77,6 +78,8 @@
 		654980E314758FFB008369C3 /* white_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_texture.png; sourceTree = "<group>"; };
 		654980F91475AD15008369C3 /* postpicbuttonbg_button_highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postpicbuttonbg_button_highlight.png; sourceTree = "<group>"; };
 		654980FA1475AD15008369C3 /* postpicbuttonbg_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postpicbuttonbg_button.png; sourceTree = "<group>"; };
+		654980FD1475B312008369C3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		654980FE1475B312008369C3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		6568C09D146DDFA4002CD1CD /* LoveYourWorkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveYourWorkAPI.h; sourceTree = "<group>"; };
 		6568C09E146DDFA4002CD1CD /* LoveYourWorkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveYourWorkAPI.m; sourceTree = "<group>"; };
 		656A23EF147427F4000E1419 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -168,6 +171,15 @@
 				654980C814749C47008369C3 /* favs-icon.png */,
 			);
 			path = Screenshots;
+			sourceTree = "<group>";
+		};
+		654981001475B317008369C3 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				654980FD1475B312008369C3 /* MBProgressHUD.h */,
+				654980FE1475B312008369C3 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		6568C099146DCED9002CD1CD /* UI */ = {
@@ -281,6 +293,7 @@
 		65B9F4231462F88500AC907F /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				654981001475B317008369C3 /* MBProgressHUD */,
 				65B9F4281462F8E900AC907F /* AFNetworking */,
 				65B9F4241462F8BE00AC907F /* JSONKit */,
 			);
@@ -428,6 +441,7 @@
 				65B9F46714649A9C00AC907F /* HyperpublicAPI.m in Sources */,
 				65B9F46A14649AAE00AC907F /* HPVenue.m in Sources */,
 				6568C09F146DDFA4002CD1CD /* LoveYourWorkAPI.m in Sources */,
+				654980FF1475B312008369C3 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

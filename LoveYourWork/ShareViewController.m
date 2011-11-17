@@ -86,6 +86,7 @@
     [self.venueName setText:[self.selectedVenue objectForKey:@"display_name"]];
     
     [self dismissModalViewControllerAnimated:YES];
+
 }
 
 #pragma mark - View lifecycle

@@ -12,6 +12,7 @@
 @protocol HyperpublicAPIDelegate <NSObject>
 
 - (void)placesReturned:(NSArray*)places;
+- (void)placesError:(NSError*)error;
 
 @end
 

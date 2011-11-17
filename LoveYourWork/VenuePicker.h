@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HyperpublicAPI.h"
 #import <CoreLocation/CoreLocation.h>
+#import "MBProgressHUD.h"
 
 @protocol VenuePickerDelegate <NSObject>
 - (void) pickedVenue:(NSDictionary *)venue;
@@ -21,11 +22,15 @@
 {
     CLLocationManager *locationManager;
     bool initialLoadStarted;
+    
+    MBProgressHUD* _progressHUD;
+    MBProgressHUD* _errorHUD;
 }
 
 
 - (void)reloadPlaces;
 - (void)placesReturned:(NSArray*)placesJSON;
+- (void)placesError:(NSError *)error;
 
 @property (retain, nonatomic) NSArray* places;
 @property (retain, nonatomic) id <VenuePickerDelegate> delegate;
@@ -38,5 +43,6 @@
 
 # pragma mark - controls
 @property (retain, nonatomic) IBOutlet UISearchBar* searchBar;
-
+@property (retain, nonatomic) MBProgressHUD* progressHUD;
+@property (retain, nonatomic) MBProgressHUD* errorHUD;
 @end

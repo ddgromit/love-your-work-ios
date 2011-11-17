@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "VenuePicker.h"
 #import "LoveYourWorkAPI.h"
+#import "MBProgressHUD.h"
 
 @interface ShareViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate, VenuePickerDelegate, LoveYourWorkAPIDelegate> {
     UIImageView* previewImageView;

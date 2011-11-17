@@ -46,7 +46,7 @@
         NSLog(@"Returned from operation");
         [self.delegate placesReturned:placesJSON];
     } failure:^(NSURLRequest* request,NSHTTPURLResponse *response, NSError *error) {
-        NSLog(@"Error: %@",error);
+        [self.delegate placesError:error];
     }];
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
