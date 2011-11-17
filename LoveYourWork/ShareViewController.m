@@ -94,6 +94,8 @@
 {
     [super viewDidLoad];
     cameraPresented = false;
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"white_sand.png"]];
 }
 
 - (void)viewDidUnload

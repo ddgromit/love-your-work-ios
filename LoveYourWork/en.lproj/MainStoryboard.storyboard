@@ -149,26 +149,6 @@
             <point key="canvasLocation" x="-31" y="-106"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="ShareViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sendPressed:"/>
-                <relationship kind="action" name="textFieldReturn:"/>
-                <relationship kind="outlet" name="captionTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="pecentage" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="previewImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="venuePickerController" candidateClass="UIViewController"/>
-            </relationships>
-        </class>
-        <class className="VenuePicker" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenuePicker.h"/>
-            <relationships>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
