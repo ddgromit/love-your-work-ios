@@ -56,13 +56,14 @@
 }
 - (IBAction) sendPressed: (id) sender {
     NSString* hpId = [self.selectedVenue valueForKey:@"id"];
+    NSString* caption = [self.captionTextField text];
     
     LoveYourWorkAPI *api = [[LoveYourWorkAPI alloc] init];
     api.delegate = self;
     [api    sendImage:self.previewImageView.image 
     withHyperpublicId:hpId
            withUserId:@"1" 
-              caption:@"from iphone api"
+              caption:caption
               success:^(NSString* response) {
                   NSLog(@"Called success: %@",response);
               }
