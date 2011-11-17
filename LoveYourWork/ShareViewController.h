@@ -14,6 +14,8 @@
     UIImageView* previewImageView;
     UILabel* pecentage;
     UIViewController* venuePickerController;
+    
+    bool cameraPresented;
 }
 - (IBAction) sendPressed: (id) sender;
 - (IBAction) textFieldReturn:(id) sender;

@@ -93,6 +93,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    cameraPresented = false;
 }
 
 - (void)viewDidUnload
@@ -137,7 +138,10 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self presentImagePicker];
+    if (!cameraPresented) {
+        cameraPresented = true;
+        [self presentImagePicker];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
