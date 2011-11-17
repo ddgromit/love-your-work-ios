@@ -40,7 +40,9 @@
     NSLog(@"Location manager update: %@", newLocation);
     self.currentLocation = newLocation;
     
-    [self reloadPlaces];
+    if (!initialLoadStarted) {
+        [self reloadPlaces];
+    }
     
 }
 
@@ -54,15 +56,13 @@
 {
     assert(self.currentLocation != nil);
     
-    // Only load once
-    if (initialLoadStarted) {
-        return;
-    }
+    // Only do automatic load once
     initialLoadStarted = true;
     
     // Make the API call
     NSLog(@"Reloading places");
-    [self.api apiCallWithLocation:self.currentLocation];
+    [self.api apiCallWithLocation:self.currentLocation 
+                        withQuery:self.currentQuery];
 }
 
 # pragma mark - Hyperpublic API delegates
@@ -78,7 +78,9 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    self.currentQuery = [self.searchBar text];
     [self.searchBar resignFirstResponder];
+    [self reloadPlaces];
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
@@ -129,6 +131,7 @@
     self = [super initWithStyle:style];
     if (self) {
         initialLoadStarted = false;
+        self.currentQuery = @"";
     }
     return self;
 }

@@ -19,7 +19,7 @@
 @interface HyperpublicAPI : NSObject
 
 - (id)initWithClientId:(NSString *)clientId clientSecret:(NSString *)clientSecret; 
-- (void)apiCallWithLocation:(CLLocation*)location;
+- (void)apiCallWithLocation:(CLLocation*)location withQuery:(NSString*)query;
 
 @property (strong, nonatomic) NSString* clientId;
 @property (strong, nonatomic) NSString* clientSecret;
