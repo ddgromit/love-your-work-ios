@@ -18,9 +18,12 @@
 - (IBAction) sendPressed: (id) sender;
 - (IBAction) textFieldReturn:(id) sender;
 @property (nonatomic, retain) IBOutlet UIImageView* previewImageView;
+@property (nonatomic, retain) IBOutlet UILabel* venueName;
+
 @property (nonatomic, retain) IBOutlet UILabel* pecentage;
 @property (nonatomic, retain) IBOutlet UIViewController* venuePickerController;
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
+
 @property (strong, nonatomic) NSDictionary* selectedVenue;
 
 @end

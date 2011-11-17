@@ -17,6 +17,7 @@
 @synthesize venuePickerController;
 @synthesize captionTextField;
 @synthesize selectedVenue;
+@synthesize venueName;
 
 - (void)didReceiveMemoryWarning
 {
@@ -81,6 +82,8 @@
 {
     NSDictionary* newVenue = [[NSDictionary alloc] initWithDictionary:venue copyItems:true];
     self.selectedVenue = newVenue;
+    [self.venueName setText:[self.selectedVenue objectForKey:@"display_name"]];
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 

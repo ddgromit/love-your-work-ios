@@ -62,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you love about this?" minimumFontSize="17" id="Be6-CY-zP8">
-                                <rect key="frame" x="7" y="150" width="306" height="31"/>
+                                <rect key="frame" x="7" y="168" width="306" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -78,6 +78,7 @@
                         <outlet property="captionTextField" destination="Be6-CY-zP8" id="B6D-RV-nTc"/>
                         <outlet property="pecentage" destination="qib-k3-ab0" id="c2b-jA-43f"/>
                         <outlet property="previewImageView" destination="9qs-Uc-UEZ" id="lqc-DJ-Tdh"/>
+                        <outlet property="venueName" destination="rEd-iW-IQP" id="x4B-zd-7ap"/>
                     </connections>
                 </viewController>
             </objects>
@@ -163,6 +164,26 @@
     <resources>
         <image name="first.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="ShareViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShareViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sendPressed:"/>
+                <relationship kind="action" name="textFieldReturn:"/>
+                <relationship kind="outlet" name="captionTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="pecentage" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="previewImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="venueName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venuePickerController" candidateClass="UIViewController"/>
+            </relationships>
+        </class>
+        <class className="VenuePicker" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VenuePicker.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
