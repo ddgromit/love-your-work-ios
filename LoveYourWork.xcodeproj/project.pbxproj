@@ -27,6 +27,8 @@
 		654980FB1475AD15008369C3 /* postpicbuttonbg_button_highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 654980F91475AD15008369C3 /* postpicbuttonbg_button_highlight.png */; };
 		654980FC1475AD15008369C3 /* postpicbuttonbg_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 654980FA1475AD15008369C3 /* postpicbuttonbg_button.png */; };
 		654980FF1475B312008369C3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 654980FE1475B312008369C3 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		654981071476C1E4008369C3 /* GlobalFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654981061476C1E4008369C3 /* GlobalFeedViewController.m */; };
+		6549810A1476C325008369C3 /* PicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654981091476C325008369C3 /* PicViewController.m */; };
 		6568C09F146DDFA4002CD1CD /* LoveYourWorkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568C09E146DDFA4002CD1CD /* LoveYourWorkAPI.m */; };
 		656A23F0147427F4000E1419 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656A23EF147427F4000E1419 /* CoreLocation.framework */; };
 		65B9F3FC1462F87900AC907F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9F3FB1462F87900AC907F /* UIKit.framework */; };
@@ -80,6 +82,10 @@
 		654980FA1475AD15008369C3 /* postpicbuttonbg_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postpicbuttonbg_button.png; sourceTree = "<group>"; };
 		654980FD1475B312008369C3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		654980FE1475B312008369C3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		654981051476C1E3008369C3 /* GlobalFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalFeedViewController.h; sourceTree = "<group>"; };
+		654981061476C1E4008369C3 /* GlobalFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalFeedViewController.m; sourceTree = "<group>"; };
+		654981081476C325008369C3 /* PicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicViewController.h; sourceTree = "<group>"; };
+		654981091476C325008369C3 /* PicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicViewController.m; sourceTree = "<group>"; };
 		6568C09D146DDFA4002CD1CD /* LoveYourWorkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveYourWorkAPI.h; sourceTree = "<group>"; };
 		6568C09E146DDFA4002CD1CD /* LoveYourWorkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveYourWorkAPI.m; sourceTree = "<group>"; };
 		656A23EF147427F4000E1419 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -220,6 +226,10 @@
 				65B9F4631464886000AC907F /* VenuePicker.m */,
 				65B9F4171462F87900AC907F /* ShareViewController.h */,
 				65B9F4181462F87900AC907F /* ShareViewController.m */,
+				654981051476C1E3008369C3 /* GlobalFeedViewController.h */,
+				654981061476C1E4008369C3 /* GlobalFeedViewController.m */,
+				654981081476C325008369C3 /* PicViewController.h */,
+				654981091476C325008369C3 /* PicViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -442,6 +452,8 @@
 				65B9F46A14649AAE00AC907F /* HPVenue.m in Sources */,
 				6568C09F146DDFA4002CD1CD /* LoveYourWorkAPI.m in Sources */,
 				654980FF1475B312008369C3 /* MBProgressHUD.m in Sources */,
+				654981071476C1E4008369C3 /* GlobalFeedViewController.m in Sources */,
+				6549810A1476C325008369C3 /* PicViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
