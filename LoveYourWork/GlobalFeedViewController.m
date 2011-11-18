@@ -7,8 +7,40 @@
 //
 
 #import "GlobalFeedViewController.h"
+#import "GlobalFeedItemViewController.h"
 
 @implementation GlobalFeedViewController
+
+@synthesize scrollView;
+
+# pragma mark - Pic populating
+- (void) loadPics
+{
+    UIScrollView* sv = self.scrollView;
+    
+    CGFloat currentTop = 0;
+    for (int i = 0; i < 30; i++) {
+        UIViewController* lineController = [self makePicLine];
+        UIView *line = lineController.view;
+        
+        // Set the top, left for the line
+        CGSize size = line.bounds.size;
+        line.frame = CGRectMake(0, currentTop, size.width, size.height);
+        currentTop += size.height;
+        
+        // Add it and update scrollview size
+        [self.scrollView addSubview:line];
+        CGSize newSize = CGSizeMake(300, line.frame.origin.y + line.frame.size.height);
+        sv.contentSize = newSize;
+    }
+}
+- (UIViewController*) makePicLine
+{
+    
+    GlobalFeedItemViewController* feedItem = [[GlobalFeedItemViewController alloc] init];
+    
+    return feedItem;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,13 +80,14 @@
 }
 */
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadPics];
+    
 }
-*/
+
 
 - (void)viewDidUnload
 {

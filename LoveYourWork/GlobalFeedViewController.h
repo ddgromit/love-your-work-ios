@@ -10,4 +10,10 @@
 
 @interface GlobalFeedViewController : UIViewController
 
+
+- (UIViewController*) makePicLine;
+- (void) loadPics;
+
+@property (retain, nonatomic) IBOutlet UIScrollView* scrollView;
+
 @end

@@ -29,6 +29,8 @@
 		654980FF1475B312008369C3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 654980FE1475B312008369C3 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		654981071476C1E4008369C3 /* GlobalFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654981061476C1E4008369C3 /* GlobalFeedViewController.m */; };
 		6549810A1476C325008369C3 /* PicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 654981091476C325008369C3 /* PicViewController.m */; };
+		6549811614770DC9008369C3 /* GlobalFeedItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6549811414770DC9008369C3 /* GlobalFeedItemViewController.m */; };
+		6549811714770DC9008369C3 /* GlobalFeedItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6549811514770DC9008369C3 /* GlobalFeedItemViewController.xib */; };
 		6568C09F146DDFA4002CD1CD /* LoveYourWorkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6568C09E146DDFA4002CD1CD /* LoveYourWorkAPI.m */; };
 		656A23F0147427F4000E1419 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656A23EF147427F4000E1419 /* CoreLocation.framework */; };
 		65B9F3FC1462F87900AC907F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65B9F3FB1462F87900AC907F /* UIKit.framework */; };
@@ -86,6 +88,9 @@
 		654981061476C1E4008369C3 /* GlobalFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalFeedViewController.m; sourceTree = "<group>"; };
 		654981081476C325008369C3 /* PicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicViewController.h; sourceTree = "<group>"; };
 		654981091476C325008369C3 /* PicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicViewController.m; sourceTree = "<group>"; };
+		6549811314770DC9008369C3 /* GlobalFeedItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalFeedItemViewController.h; path = ../GlobalFeedItemViewController.h; sourceTree = "<group>"; };
+		6549811414770DC9008369C3 /* GlobalFeedItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlobalFeedItemViewController.m; path = ../GlobalFeedItemViewController.m; sourceTree = "<group>"; };
+		6549811514770DC9008369C3 /* GlobalFeedItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GlobalFeedItemViewController.xib; sourceTree = "<group>"; };
 		6568C09D146DDFA4002CD1CD /* LoveYourWorkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoveYourWorkAPI.h; sourceTree = "<group>"; };
 		6568C09E146DDFA4002CD1CD /* LoveYourWorkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoveYourWorkAPI.m; sourceTree = "<group>"; };
 		656A23EF147427F4000E1419 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -193,6 +198,7 @@
 			children = (
 				65B9F40D1462F87900AC907F /* MainStoryboard.storyboard */,
 				65F1EAC4146852E50070A030 /* VenuePicker.storyboard */,
+				6549811514770DC9008369C3 /* GlobalFeedItemViewController.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -220,6 +226,8 @@
 		6568C09B146DCF2F002CD1CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6549811314770DC9008369C3 /* GlobalFeedItemViewController.h */,
+				6549811414770DC9008369C3 /* GlobalFeedItemViewController.m */,
 				65B9F40A1462F87900AC907F /* AppDelegate.h */,
 				65B9F40B1462F87900AC907F /* AppDelegate.m */,
 				65B9F4621464886000AC907F /* VenuePicker.h */,
@@ -423,6 +431,7 @@
 				654980E414758FFB008369C3 /* white_texture.png in Resources */,
 				654980FB1475AD15008369C3 /* postpicbuttonbg_button_highlight.png in Resources */,
 				654980FC1475AD15008369C3 /* postpicbuttonbg_button.png in Resources */,
+				6549811714770DC9008369C3 /* GlobalFeedItemViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +463,7 @@
 				654980FF1475B312008369C3 /* MBProgressHUD.m in Sources */,
 				654981071476C1E4008369C3 /* GlobalFeedViewController.m in Sources */,
 				6549810A1476C325008369C3 /* PicViewController.m in Sources */,
+				6549811614770DC9008369C3 /* GlobalFeedItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
