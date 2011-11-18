@@ -9,6 +9,7 @@
 #import "ShareViewController.h"
 #import "AFHTTPClient.h"
 #import "AFHTTPRequestOperation.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation ShareViewController
 
@@ -36,6 +37,12 @@
     // Get the image from the camera
     UIImage* pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     [self.previewImageView setImage:pickedImage];
+    
+    // Rounded corners
+    self.previewImageView.layer.cornerRadius = 4.0;
+    self.previewImageView.layer.masksToBounds = YES;
+    self.previewImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.previewImageView.layer.borderWidth = 5.0;
     
     // Create the venues list controller
     UIStoryboard* venues = [UIStoryboard storyboardWithName:@"VenuePicker" bundle:nil];
