@@ -18,6 +18,8 @@
 @synthesize captionTextField;
 @synthesize selectedVenue;
 @synthesize venueName;
+@synthesize progressHUD;
+@synthesize errorHUD;
 
 - (void)didReceiveMemoryWarning
 {
@@ -55,28 +57,7 @@
     NSLog(@"uploadprogress called");
 }
 - (IBAction) sendPressed: (id) sender {
-    NSString* hpId = [self.selectedVenue valueForKey:@"id"];
-    NSString* caption = [self.captionTextField text];
-    
-    LoveYourWorkAPI *api = [[LoveYourWorkAPI alloc] init];
-    api.delegate = self;
-    [api    sendImage:self.previewImageView.image 
-    withHyperpublicId:hpId
-           withUserId:@"1" 
-              caption:caption
-              success:^(NSString* response) {
-                  NSLog(@"Called success: %@",response);
-              }
-              failure:^(NSError* error) {
-                  NSLog(@"Called failure: %@",error);
-              }
-  uploadProgressBlock:^(NSInteger bytesWritten, 
-                        NSInteger totalBytesWritten, 
-                        NSInteger totalBytesExpectedToWrite) {
-                  NSLog(@"Sent %d of %d bytes", totalBytesWritten, totalBytesExpectedToWrite);
-              }];
-
-    
+    [self transferStart];
 }
 
 - (void)pickedVenue:(NSDictionary *)venue
@@ -89,14 +70,99 @@
 
 }
 
+# pragma mark - Submission
+- (void)submitPic
+{
+    // Get fields
+    NSString* hpId = [self.selectedVenue valueForKey:@"id"];
+    NSString* caption = [self.captionTextField text];
+    
+    // Make an LYW API object
+    LoveYourWorkAPI *api = [[LoveYourWorkAPI alloc] init];
+    api.delegate = self;
+    
+    // Make the request
+    [api    sendImage:self.previewImageView.image 
+    withHyperpublicId:hpId
+           withUserId:@"1" 
+              caption:caption
+              success:^(NSString* response) {
+                  // Call came back successful
+                  NSLog(@"Called success: %@",response);
+                  [self transferEnd:true];
+              }
+              failure:^(NSError* error) {
+                  // Call came back failed
+                  NSLog(@"Called failure: %@",error);
+                  [self transferEnd:false];
+              }
+  uploadProgressBlock:^(NSInteger bytesWritten, 
+                        NSInteger totalBytesWritten, 
+                        NSInteger totalBytesExpectedToWrite) {
+      NSLog(@"Sent %d of %d bytes", totalBytesWritten, totalBytesExpectedToWrite);
+  }];
+}
+- (void)transferStart
+{
+    // No double submit
+    if (transferInProgress) return;
+    transferInProgress = true;
+    
+    // Show progress indicator and disable controls
+    [self.progressHUD show:true];
+    self.view.userInteractionEnabled = false;
+    
+    // Kick it off
+    [self submitPic];
+}
+- (void)transferEnd:(BOOL)success
+{
+    transferInProgress = false;
+    
+    // Hide popup and re-enable controls
+    [self.progressHUD hide:false];
+    self.view.userInteractionEnabled = true;
+    
+    // Also show error if it didn't work
+    if (!success) {
+        [self.errorHUD show:false];
+        [self.errorHUD hide:true afterDelay:2];
+    }
+}
+
+# pragma mark - Progress
+- (MBProgressHUD*)progressHUD
+{
+    if (_progressHUD == nil)
+    {
+        _progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
+        _progressHUD.labelText = @"Sending...";
+        _progressHUD.dimBackground = true;
+        [self.view addSubview:_progressHUD];
+    }
+    return _progressHUD;
+}
+- (MBProgressHUD*)errorHUD
+{
+    if (_errorHUD == nil)
+    {
+        _errorHUD = [[MBProgressHUD alloc] initWithView:self.view];
+        _errorHUD.labelText = @"Error";
+        _errorHUD.labelText = @"We encountered a \nproblem when sending.";
+        [self.view addSubview:_errorHUD];
+    }
+    return _errorHUD;
+}
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     cameraPresented = false;
+    transferInProgress = false;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"white_sand.png"]];
+    
 }
 
 - (void)viewDidUnload

@@ -82,12 +82,6 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
     if (uploadProgressBlock != nil) {
         [operation setUploadProgressBlock:uploadProgressBlock];
     }
-    /*
-    [operation setUploadProgressBlock:^(NSInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite) {
-        
-        NSLog(@"Sent %d of %d bytes", totalBytesWritten, totalBytesExpectedToWrite);
-        [self.delegate uploadProgress:bytesWritten totalByesWritten:totalBytesWritten totalBytesExpectedToWrite:totalBytesExpectedToWrite];
-    }];*/
     
     // Kick off the transfer
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];

@@ -16,10 +16,22 @@
     UILabel* pecentage;
     UIViewController* venuePickerController;
     
+    
+    MBProgressHUD* _progressHUD;
+    MBProgressHUD* _errorHUD;
+    
+    bool transferInProgress;
+    
     bool cameraPresented;
 }
 - (IBAction) sendPressed: (id) sender;
 - (IBAction) textFieldReturn:(id) sender;
+
+
+- (void)transferStart;
+- (void)transferEnd:(BOOL)success;
+- (void)submitPic;
+
 @property (nonatomic, retain) IBOutlet UIImageView* previewImageView;
 @property (nonatomic, retain) IBOutlet UILabel* venueName;
 
@@ -28,5 +40,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
 
 @property (strong, nonatomic) NSDictionary* selectedVenue;
+
+@property (retain, nonatomic) MBProgressHUD* progressHUD;
+@property (retain, nonatomic) MBProgressHUD* errorHUD;
+
 
 @end
