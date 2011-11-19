@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoveYourWorkAPI.h"
 
 @interface GlobalFeedViewController : UIViewController
 
 
-- (UIViewController*) makePicLine;
+- (UIViewController*) makePicLine:(LoveYourWorkPic*)pic;
 - (void) loadPics;
 
 @property (retain, nonatomic) IBOutlet UIScrollView* scrollView;

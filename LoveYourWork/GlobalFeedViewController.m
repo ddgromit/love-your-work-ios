@@ -19,8 +19,12 @@
     UIScrollView* sv = self.scrollView;
     
     CGFloat currentTop = 0;
-    for (int i = 0; i < 30; i++) {
-        UIViewController* lineController = [self makePicLine];
+    
+    LoveYourWorkAPI* api = [[LoveYourWorkAPI alloc] init];
+    NSArray* pics = [api getPics];
+    
+    for (LoveYourWorkPic* pic in pics) {
+        UIViewController* lineController = [self makePicLine:pic];
         UIView *line = lineController.view;
         
         // Set the top, left for the line
@@ -34,11 +38,12 @@
         sv.contentSize = newSize;
     }
 }
-- (UIViewController*) makePicLine
+- (UIViewController*) makePicLine:(LoveYourWorkPic*)pic
 {
     
     GlobalFeedItemViewController* feedItem = [[GlobalFeedItemViewController alloc] init];
-    feedItem.captionText = @"Whatup";
+    feedItem.pic = pic;
+    
     return feedItem;
 }
 

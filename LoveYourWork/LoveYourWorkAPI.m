@@ -87,4 +87,45 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperation:operation];   
 }
+
+- (NSArray*)getPics
+{
+    NSDictionary* samplePicDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"the caption",@"caption", nil];
+    NSMutableArray* arr = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 5; i++) {
+        LoveYourWorkPic* newPic = [[LoveYourWorkPic alloc] initWithDictionary:samplePicDict];
+        [arr addObject:newPic];
+    }
+    return arr;
+}
+@end
+
+@implementation LoveYourWorkPic
+
+-(id)initWithDictionary:(NSDictionary *)picDictArg
+{
+    self = [super init];
+    picDict = picDictArg;
+    return self;
+}
+
+-(NSString*)getVenueName
+{
+    return @"Venue Name";
+}
+-(NSString*)getAuthorName
+{
+    return @"Elyse B.";
+}
+-(UIImage*)getImage
+{
+    NSString* imageName = [[NSBundle mainBundle] pathForResource:@"wood_1" ofType:@"png"];
+    return [[UIImage alloc] initWithContentsOfFile:imageName];
+    
+}
+-(NSString*)getCaption
+{
+    return @"soup on a rainy day";
+}
+
 @end

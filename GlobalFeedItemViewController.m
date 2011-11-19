@@ -10,8 +10,12 @@
 
 @implementation GlobalFeedItemViewController
 
+@synthesize pic;
+
 @synthesize caption;
-@synthesize captionText;
+@synthesize imageView;
+@synthesize venueName;
+@synthesize authorName;
 
 #pragma mark - Caption text
 
@@ -37,8 +41,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    if (self.captionText != nil) {
-        self.caption.text = self.captionText;
+    if (self.pic != nil) {
+        self.caption.text = [self.pic getCaption];
+        self.imageView.image = [self.pic getImage];
+        self.authorName.text = [self.pic getAuthorName];
+        self.venueName.text = [self.pic getVenueName];
     }
 }
 

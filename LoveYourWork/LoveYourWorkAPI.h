@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@interface LoveYourWorkPic : NSObject {
+    NSDictionary* picDict;
+}
+-(id)initWithDictionary:(NSDictionary*)picDict;
+-(NSString*)getVenueName;
+-(NSString*)getAuthorName;
+-(UIImage*)getImage;
+-(NSString*)getCaption;
+
+@end
+
 @protocol LoveYourWorkAPIDelegate <NSObject>
 
 - (void)uploadProgress:(NSInteger)bytesWritten totalByesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite;
@@ -24,6 +35,8 @@
           success:(void (^)(NSString*))success
           failure:(void (^)(NSError*))failure
 uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite))uploadProgressBlock;
+
+- (NSArray*)getPics;
 
 @property (assign, nonatomic) id<LoveYourWorkAPIDelegate>delegate;
 @end
