@@ -146,8 +146,9 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
 }
 -(UIImage*)getImage
 {
-    NSString* imageName = [[NSBundle mainBundle] pathForResource:@"wood_1" ofType:@"png"];
-    return [[UIImage alloc] initWithContentsOfFile:imageName];
+    //NSString* imageName = [[NSBundle mainBundle] pathForResource:@"wood_1" ofType:@"png"];
+    //return [[UIImage alloc] initWithContentsOfFile:imageName];
+    return [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://s3.amazonaws.com/loveyourwork/uploads/images/35.original.jpeg?1321657548"]]];
     
 }
 -(NSString*)getCaption

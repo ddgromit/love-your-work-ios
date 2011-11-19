@@ -7,6 +7,7 @@
 //
 
 #import "GlobalFeedItemViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation GlobalFeedItemViewController
 
@@ -43,9 +44,11 @@
     // Do any additional setup after loading the view from its nib.
     if (self.pic != nil) {
         self.caption.text = [self.pic getCaption];
-        self.imageView.image = [self.pic getImage];
+        //self.imageView.image = [self.pic getImage];
         self.authorName.text = [self.pic getAuthorName];
         self.venueName.text = [self.pic getVenueName];
+        NSURL* url = [NSURL URLWithString:@"http://s3.amazonaws.com/loveyourwork/uploads/images/35.original.jpeg?1321657548"];
+        [self.imageView setImageWithURL:url];
     }
 }
 
