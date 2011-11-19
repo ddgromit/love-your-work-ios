@@ -16,27 +16,34 @@
 # pragma mark - Pic populating
 - (void) loadPics
 {
-    UIScrollView* sv = self.scrollView;
+    // Add pics to the scroll view when they come back from the API
+    void (^success)(NSArray*) = ^(NSArray* pics) {
+        UIScrollView* sv = self.scrollView;
+        CGFloat currentTop = 0;
+        
+        for (LoveYourWorkPic* pic in pics) {
+            UIViewController* lineController = [self makePicLine:pic];
+            UIView *line = lineController.view;
+            
+            // Set the top, left for the line
+            CGSize size = line.bounds.size;
+            line.frame = CGRectMake(0, currentTop, size.width, size.height);
+            currentTop += size.height;
+            
+            // Add it and update scrollview size
+            [self.scrollView addSubview:line];
+            CGSize newSize = CGSizeMake(300, line.frame.origin.y + line.frame.size.height);
+            sv.contentSize = newSize;
+        }
+    };
+    void (^failure)(NSError*) = ^(NSError* err) {
+        NSLog(@"Get Pics Error: %@",err);
+    };
     
-    CGFloat currentTop = 0;
-    
+    // Make the call
     LoveYourWorkAPI* api = [[LoveYourWorkAPI alloc] init];
-    NSArray* pics = [api getPics];
+    [api getPicsWithSuccess:success failure:failure];
     
-    for (LoveYourWorkPic* pic in pics) {
-        UIViewController* lineController = [self makePicLine:pic];
-        UIView *line = lineController.view;
-        
-        // Set the top, left for the line
-        CGSize size = line.bounds.size;
-        line.frame = CGRectMake(0, currentTop, size.width, size.height);
-        currentTop += size.height;
-        
-        // Add it and update scrollview size
-        [self.scrollView addSubview:line];
-        CGSize newSize = CGSizeMake(300, line.frame.origin.y + line.frame.size.height);
-        sv.contentSize = newSize;
-    }
 }
 - (UIViewController*) makePicLine:(LoveYourWorkPic*)pic
 {

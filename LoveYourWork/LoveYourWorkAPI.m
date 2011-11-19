@@ -88,7 +88,8 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
     [queue addOperation:operation];   
 }
 
-- (NSArray*)getPics
+- (void)getPicsWithSuccess:(void (^)(NSArray*))success
+                   failure:(void (^)(NSError*))failure
 {
     NSDictionary* samplePicDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"the caption",@"caption", nil];
     NSMutableArray* arr = [[NSMutableArray alloc] init];
@@ -96,7 +97,7 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
         LoveYourWorkPic* newPic = [[LoveYourWorkPic alloc] initWithDictionary:samplePicDict];
         [arr addObject:newPic];
     }
-    return arr;
+    success(arr);
 }
 @end
 

@@ -36,7 +36,8 @@
           failure:(void (^)(NSError*))failure
 uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite))uploadProgressBlock;
 
-- (NSArray*)getPics;
+- (void)getPicsWithSuccess:(void (^)(NSArray*))success
+                   failure:(void (^)(NSError*))failure;
 
 @property (assign, nonatomic) id<LoveYourWorkAPIDelegate>delegate;
 @end
