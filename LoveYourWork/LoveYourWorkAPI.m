@@ -138,7 +138,7 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
 
 -(NSString*)getVenueName
 {
-    return @"venue name";//[picDict objectForKey:@"display_name"];
+    return @"venue name";
 }
 -(NSString*)getAuthorName
 {
