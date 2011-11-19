@@ -9,6 +9,7 @@
 #import "LoveYourWorkAPI.h"
 #import "AFHTTPClient.h"
 #import "AFHTTPRequestOperation.h"
+#import "AFJSONRequestOperation.h"
 
 @implementation LoveYourWorkAPI
 
@@ -91,13 +92,38 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
 - (void)getPicsWithSuccess:(void (^)(NSArray*))success
                    failure:(void (^)(NSError*))failure
 {
-    NSDictionary* samplePicDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"the caption",@"caption", nil];
-    NSMutableArray* arr = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 5; i++) {
-        LoveYourWorkPic* newPic = [[LoveYourWorkPic alloc] initWithDictionary:samplePicDict];
-        [arr addObject:newPic];
+    
+    NSURL* baseURL;
+    if (USING_PROD) {
+        baseURL = [[NSURL alloc] initWithString:@"http://loveyourwork.heroku.com/"];
+    } else {
+        baseURL = [[NSURL alloc] initWithString:@"http://127.0.0.1:3000/"];
     }
-    success(arr);
+    
+    // Build the URL
+    NSString *url = [NSString 
+                     stringWithFormat:@"%@pics.json",baseURL];
+    NSLog(@"Making lyw api call to %@",url);
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        NSArray* picsJSON = (NSArray*)JSON;
+        
+        // Turn the array of pics into objects
+        NSMutableArray* arr = [[NSMutableArray alloc] init];
+        for (NSDictionary* picJSON in picsJSON) {
+            LoveYourWorkPic* newPic = [[LoveYourWorkPic alloc] initWithDictionary:picJSON];
+            [arr addObject:newPic];
+        }
+        
+        // Callback with array of pic objects
+        success(arr);
+    } failure:^(NSURLRequest* request,NSHTTPURLResponse *response, NSError *error) {
+        failure(error);
+    }];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [queue addOperation:operation];
 }
 @end
 
@@ -112,7 +138,7 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
 
 -(NSString*)getVenueName
 {
-    return @"Venue Name";
+    return @"venue name";//[picDict objectForKey:@"display_name"];
 }
 -(NSString*)getAuthorName
 {
@@ -126,7 +152,7 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
 }
 -(NSString*)getCaption
 {
-    return @"soup on a rainy day";
+    return [picDict objectForKey:@"caption"];
 }
 
 @end

@@ -11,7 +11,7 @@
 @interface LoveYourWorkPic : NSObject {
     NSDictionary* picDict;
 }
--(id)initWithDictionary:(NSDictionary*)picDict;
+-(id)initWithDictionary:(NSDictionary*)picDictArg;
 -(NSString*)getVenueName;
 -(NSString*)getAuthorName;
 -(UIImage*)getImage;
