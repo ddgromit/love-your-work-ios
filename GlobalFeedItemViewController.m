@@ -10,6 +10,11 @@
 
 @implementation GlobalFeedItemViewController
 
+@synthesize caption;
+@synthesize captionText;
+
+#pragma mark - Caption text
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,11 +33,13 @@
 }
 
 #pragma mark - View lifecycle
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    if (self.captionText != nil) {
+        self.caption.text = self.captionText;
+    }
 }
 
 - (void)viewDidUnload

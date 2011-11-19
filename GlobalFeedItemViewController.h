@@ -10,4 +10,7 @@
 
 @interface GlobalFeedItemViewController : UIViewController
 
+@property (nonatomic, assign) IBOutlet UILabel* caption;
+@property (nonatomic, assign) IBOutlet NSString* captionText;
+
 @end

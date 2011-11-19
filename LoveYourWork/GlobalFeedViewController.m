@@ -38,7 +38,7 @@
 {
     
     GlobalFeedItemViewController* feedItem = [[GlobalFeedItemViewController alloc] init];
-    
+    feedItem.captionText = @"Whatup";
     return feedItem;
 }
 
