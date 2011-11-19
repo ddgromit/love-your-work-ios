@@ -142,14 +142,12 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
 }
 -(NSString*)getAuthorName
 {
-    return @"Elyse B.";
+    return @"John D.";
 }
--(UIImage*)getImage
+-(NSString*)getImageURL
 {
-    //NSString* imageName = [[NSBundle mainBundle] pathForResource:@"wood_1" ofType:@"png"];
-    //return [[UIImage alloc] initWithContentsOfFile:imageName];
-    return [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://s3.amazonaws.com/loveyourwork/uploads/images/35.original.jpeg?1321657548"]]];
-    
+    NSNumber *picId = [picDict objectForKey:@"id"];
+    return [NSString stringWithFormat:@"http://s3.amazonaws.com/loveyourwork/uploads/images/%@.large.jpeg",picId];   
 }
 -(NSString*)getCaption
 {

@@ -20,8 +20,8 @@
     void (^success)(NSArray*) = ^(NSArray* pics) {
         UIScrollView* sv = self.scrollView;
         CGFloat currentTop = 0;
-        
-        for (LoveYourWorkPic* pic in pics) {
+        NSArray* reversedPics = [[pics reverseObjectEnumerator] allObjects];
+        for (LoveYourWorkPic* pic in reversedPics) {
             UIViewController* lineController = [self makePicLine:pic];
             UIView *line = lineController.view;
             

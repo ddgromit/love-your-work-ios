@@ -14,7 +14,7 @@
 -(id)initWithDictionary:(NSDictionary*)picDictArg;
 -(NSString*)getVenueName;
 -(NSString*)getAuthorName;
--(UIImage*)getImage;
+-(NSString*)getImageURL;
 -(NSString*)getCaption;
 
 @end
