@@ -116,7 +116,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="fm1-rx-knC"/>
+                    <tabBarItem key="tabBarItem" title="Take Picture" image="first.png" id="fm1-rx-knC"/>
                     <navigationItem key="navigationItem" id="LQy-1J-S7q"/>
                     <connections>
                         <outlet property="captionTextField" destination="Be6-CY-zP8" id="B6D-RV-nTc"/>
@@ -161,6 +161,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="first.png" width="30" height="30"/>
         <image name="postpicbuttonbg_button.png" width="280" height="44"/>
     </resources>
     <classes>
