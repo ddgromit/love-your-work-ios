@@ -20,8 +20,7 @@
     void (^success)(NSArray*) = ^(NSArray* pics) {
         UIScrollView* sv = self.scrollView;
         CGFloat currentTop = 0;
-        NSArray* reversedPics = [[pics reverseObjectEnumerator] allObjects];
-        for (LoveYourWorkPic* pic in reversedPics) {
+        for (LoveYourWorkPic* pic in pics) {
             UIViewController* lineController = [self makePicLine:pic];
             UIView *line = lineController.view;
             
@@ -35,12 +34,16 @@
             CGSize newSize = CGSizeMake(300, line.frame.origin.y + line.frame.size.height);
             sv.contentSize = newSize;
         }
+        
+        [requestDialogs hideLoading];
     };
     void (^failure)(NSError*) = ^(NSError* err) {
         NSLog(@"Get Pics Error: %@",err);
+        [requestDialogs showErrorWithMessage:@"Couldn't load pictures"];
     };
     
     // Make the call
+    [requestDialogs showLoadingWithMessage:@"Loading pics..."];
     LoveYourWorkAPI* api = [[LoveYourWorkAPI alloc] init];
     [api getPicsWithSuccess:success failure:failure];
     
@@ -96,6 +99,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    requestDialogs = [[HPRequestDialogs alloc] initWithView:self.view];
     [self loadPics];
     
 }

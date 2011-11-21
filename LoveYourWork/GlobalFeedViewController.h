@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "LoveYourWorkAPI.h"
+#import "HPRequestDialogs.h"
 
 @interface GlobalFeedViewController : UIViewController
+{
+    HPRequestDialogs* requestDialogs;
+}
 
 
 - (UIViewController*) makePicLine:(LoveYourWorkPic*)pic;

@@ -102,7 +102,7 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
     
     // Build the URL
     NSString *url = [NSString 
-                     stringWithFormat:@"%@pics.json",baseURL];
+                     stringWithFormat:@"%@mobile_api/feed",baseURL];
     NSLog(@"Making lyw api call to %@",url);
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -138,16 +138,15 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
 
 -(NSString*)getVenueName
 {
-    return @"venue name";
+    return [picDict objectForKey:@"venue_name"];
 }
 -(NSString*)getAuthorName
 {
-    return @"John D.";
+    return [picDict objectForKey:@"author_name"];
 }
 -(NSString*)getImageURL
 {
-    NSNumber *picId = [picDict objectForKey:@"id"];
-    return [NSString stringWithFormat:@"http://s3.amazonaws.com/loveyourwork/uploads/images/%@.large.jpeg",picId];   
+    return [picDict objectForKey:@"image_url_feed"];
 }
 -(NSString*)getCaption
 {
