@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65166D9C147AB3E600CABFA5 /* HPRequestDialogs.m in Sources */ = {isa = PBXBuildFile; fileRef = 65166D9B147AB3E500CABFA5 /* HPRequestDialogs.m */; };
 		654980C914749C47008369C3 /* favs-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 654980BE14749C47008369C3 /* favs-icon.png */; };
 		654980CA14749C47008369C3 /* favs-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 654980BF14749C47008369C3 /* favs-icon@2x.png */; };
 		654980CB14749C47008369C3 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 654980C014749C47008369C3 /* Icon-72.png */; };
@@ -63,6 +64,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65166D9A147AB3E500CABFA5 /* HPRequestDialogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPRequestDialogs.h; sourceTree = "<group>"; };
+		65166D9B147AB3E500CABFA5 /* HPRequestDialogs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPRequestDialogs.m; sourceTree = "<group>"; };
 		654980BE14749C47008369C3 /* favs-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favs-icon.png"; sourceTree = "<group>"; };
 		654980BF14749C47008369C3 /* favs-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favs-icon@2x.png"; sourceTree = "<group>"; };
 		654980C014749C47008369C3 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -258,6 +261,8 @@
 		65B9F3EC1462F87800AC907F = {
 			isa = PBXGroup;
 			children = (
+				65166D9A147AB3E500CABFA5 /* HPRequestDialogs.h */,
+				65166D9B147AB3E500CABFA5 /* HPRequestDialogs.m */,
 				654980BD14749C47008369C3 /* iConify */,
 				656A23EF147427F4000E1419 /* CoreLocation.framework */,
 				6568C099146DCED9002CD1CD /* UI */,
@@ -464,6 +469,7 @@
 				654981071476C1E4008369C3 /* GlobalFeedViewController.m in Sources */,
 				6549810A1476C325008369C3 /* PicViewController.m in Sources */,
 				6549811614770DC9008369C3 /* GlobalFeedItemViewController.m in Sources */,
+				65166D9C147AB3E600CABFA5 /* HPRequestDialogs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

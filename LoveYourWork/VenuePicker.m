@@ -15,8 +15,6 @@
 @synthesize locationManager;
 @synthesize api;
 @synthesize searchBar;
-@synthesize progressHUD;
-@synthesize errorHUD;
 
 @synthesize currentLocation;
 @synthesize currentQuery;
@@ -63,7 +61,7 @@
     
     // Make the API call
     NSLog(@"Reloading places");
-    [self.progressHUD show:true];
+    [requestDialogs showLoadingWithMessage:@"Loading places"];
     
     [self.api apiCallWithLocation:self.currentLocation 
                         withQuery:self.currentQuery];
@@ -76,18 +74,12 @@
 {
     self.places = placesJSON;
     [self.tableView reloadData];
-    [self.progressHUD hide:true];
+    
+    [requestDialogs hideLoading];
 }
 -(void)placesError:(NSError *)error
 {
-    // hide progress
-    [self.progressHUD hide:true];
-    
-    // briefly show the error
-    self.errorHUD.labelText = @"Error";
-    self.errorHUD.detailsLabelText = @"We had a problem loading places";
-    [self.errorHUD show:true];
-    [self.errorHUD hide:true afterDelay:2];
+    [requestDialogs showErrorWithMessage:@"We had a problem loading places"];
 }
 # pragma mark - search bar delegates
 
@@ -139,27 +131,6 @@
     return cell;
 }
 
-#pragma mark - Custom controls
-- (MBProgressHUD*)progressHUD
-{
-    if (_progressHUD == nil)
-    {
-        _progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
-        _progressHUD.labelText = @"Loading places...";
-        [self.view addSubview:_progressHUD];
-    }
-    return _progressHUD;
-}
-- (MBProgressHUD*)errorHUD
-{
-    if (_errorHUD == nil)
-    {
-        _errorHUD = [[MBProgressHUD alloc] initWithView:self.view];
-        _errorHUD.labelText = @"Loading places...";
-        [self.view addSubview:_errorHUD];
-    }
-    return _errorHUD;
-}
 #pragma mark - View lifecycle
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -194,6 +165,9 @@
                     clientSecret:@"jJ32HUlFnEMGXJWvQ246WLyaNKyk94YPwYearXq6"];
     
     api.delegate = self;
+    
+    // Add request dialogs
+    requestDialogs = [[HPRequestDialogs alloc] initWithView:self.view];
     
 }
 

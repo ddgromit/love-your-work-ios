@@ -19,8 +19,6 @@
 @synthesize captionTextField;
 @synthesize selectedVenue;
 @synthesize venueName;
-@synthesize progressHUD;
-@synthesize errorHUD;
 
 - (void)didReceiveMemoryWarning
 {
@@ -116,7 +114,7 @@
     transferInProgress = true;
     
     // Show progress indicator and disable controls
-    [self.progressHUD show:true];
+    [requestDialogs showLoadingWithMessage:@"Submitting..."];
     self.view.userInteractionEnabled = false;
     
     // Kick it off
@@ -127,39 +125,15 @@
     transferInProgress = false;
     
     // Hide popup and re-enable controls
-    [self.progressHUD hide:false];
     self.view.userInteractionEnabled = true;
     
-    // Also show error if it didn't work
-    if (!success) {
-        [self.errorHUD show:false];
-        [self.errorHUD hide:true afterDelay:2];
+    if (success) {
+        [requestDialogs hideLoading];
+    } else {
+        [requestDialogs showErrorWithMessage:@"There was a problem submitting your work."];
     }
 }
 
-# pragma mark - Progress
-- (MBProgressHUD*)progressHUD
-{
-    if (_progressHUD == nil)
-    {
-        _progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
-        _progressHUD.labelText = @"Sending...";
-        _progressHUD.dimBackground = true;
-        [self.view addSubview:_progressHUD];
-    }
-    return _progressHUD;
-}
-- (MBProgressHUD*)errorHUD
-{
-    if (_errorHUD == nil)
-    {
-        _errorHUD = [[MBProgressHUD alloc] initWithView:self.view];
-        _errorHUD.labelText = @"Error";
-        _errorHUD.labelText = @"We encountered a \nproblem when sending.";
-        [self.view addSubview:_errorHUD];
-    }
-    return _errorHUD;
-}
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -169,6 +143,8 @@
     transferInProgress = false;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"white_sand.png"]];
+    
+    requestDialogs = [[HPRequestDialogs alloc] initWithView:self.view];
     
 }
 

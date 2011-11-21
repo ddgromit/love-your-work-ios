@@ -9,20 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "VenuePicker.h"
 #import "LoveYourWorkAPI.h"
-#import "MBProgressHUD.h"
+#import "HPRequestDialogs.h"
 
 @interface ShareViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate, VenuePickerDelegate, LoveYourWorkAPIDelegate> {
     UIImageView* previewImageView;
     UILabel* pecentage;
     UIViewController* venuePickerController;
     
-    
-    MBProgressHUD* _progressHUD;
-    MBProgressHUD* _errorHUD;
-    
     bool transferInProgress;
     
     bool cameraPresented;
+    
+    HPRequestDialogs* requestDialogs;
 }
 - (IBAction) sendPressed: (id) sender;
 - (IBAction) textFieldReturn:(id) sender;
@@ -40,9 +38,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *captionTextField;
 
 @property (strong, nonatomic) NSDictionary* selectedVenue;
-
-@property (retain, nonatomic) MBProgressHUD* progressHUD;
-@property (retain, nonatomic) MBProgressHUD* errorHUD;
 
 
 @end

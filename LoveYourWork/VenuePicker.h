@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HyperpublicAPI.h"
 #import <CoreLocation/CoreLocation.h>
-#import "MBProgressHUD.h"
+#import "HPRequestDialogs.h"
 
 @protocol VenuePickerDelegate <NSObject>
 - (void) pickedVenue:(NSDictionary *)venue;
@@ -23,8 +23,7 @@
     CLLocationManager *locationManager;
     bool initialLoadStarted;
     
-    MBProgressHUD* _progressHUD;
-    MBProgressHUD* _errorHUD;
+    HPRequestDialogs* requestDialogs;
 }
 
 
@@ -43,6 +42,4 @@
 
 # pragma mark - controls
 @property (retain, nonatomic) IBOutlet UISearchBar* searchBar;
-@property (retain, nonatomic) MBProgressHUD* progressHUD;
-@property (retain, nonatomic) MBProgressHUD* errorHUD;
 @end
