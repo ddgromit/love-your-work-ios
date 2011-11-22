@@ -26,7 +26,7 @@
 @end
 
 @interface LoveYourWorkAPI : NSObject {
-    
+    NSURL* baseURL;
 }
 - (id)init;
 - (void)sendImage:(UIImage*)image withHyperpublicId:(NSString*)hpId 

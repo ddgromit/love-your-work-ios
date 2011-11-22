@@ -20,6 +20,12 @@ static bool const USING_PROD = true;
 - (id)init {
     self = [super init];
     
+    if (USING_PROD) {
+        baseURL = [[NSURL alloc] initWithString:@"http://loveyourwork.heroku.com/"];
+    } else {
+        baseURL = [[NSURL alloc] initWithString:@"http://127.0.0.1:3000/"];
+    }
+    
     return self;
 }
 
@@ -41,15 +47,8 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
                             userId,@"user_id",
                             caption, @"caption",
                             nil];
-    
-    // Determine what endpoint to use
-    NSURL* baseURL;
-    if (USING_PROD) {
-        baseURL = [[NSURL alloc] initWithString:@"http://loveyourwork.heroku.com/"];
-    } else {
-        baseURL = [[NSURL alloc] initWithString:@"http://127.0.0.1:3000/"];
-    }
-    
+
+
     // Create a POST file transfer
     AFHTTPClient *client= [[AFHTTPClient alloc] initWithBaseURL:baseURL];
     [client setDefaultHeader:@"Content-disposition" value:@"form-data"];
@@ -92,13 +91,6 @@ uploadProgressBlock:(void (^)(NSInteger bytesWritten, NSInteger totalBytesWritte
 - (void)getPicsWithSuccess:(void (^)(NSArray*))success
                    failure:(void (^)(NSError*))failure
 {
-    
-    NSURL* baseURL;
-    if (USING_PROD) {
-        baseURL = [[NSURL alloc] initWithString:@"http://loveyourwork.heroku.com/"];
-    } else {
-        baseURL = [[NSURL alloc] initWithString:@"http://127.0.0.1:3000/"];
-    }
     
     // Build the URL
     NSString *url = [NSString 
